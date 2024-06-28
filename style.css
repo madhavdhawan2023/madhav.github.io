@@ -1,0 +1,86 @@
+
+body {
+    background-color: #3b3a3a;
+    color: white;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+
+}
+.video-container {
+    position: relative;
+    pointer-events: none;
+    width: 1000px; /* Match the width of the video frame */
+    overflow: hidden;
+}
+.video-container iframe {
+    width: 1000px;
+    height: 560px; /* Adjust height as needed */
+    pointer-events: none;
+    justify-content: center;
+}
+/* Custom scrollbar */
+.scrollbar {
+    width: 1000px; /* Match the width of the video iframe */
+    height: 12px; /* Height of the scrollbar */
+    background-color: #f1f1f1;
+    position: relative;
+    margin-top: 10px;
+    border-radius: 5px; /* Circular shape */
+    
+}
+.scrollbar-handle {
+    position: absolute;
+    height: 12px; /* Height of the scrollbar handle */
+    width: 12px; /* Width of the scrollbar handle */
+    accent-color: #007bff;
+    border-radius: 50%; /* Circular shape */
+    transform: translateX(-50%);
+    top: 0;
+    left: 0;
+}
+.time-markers {
+    margin-top: 10px;
+    left: 0;
+    width: 1000px; /* Match the width of the video iframe */
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    padding: 0 1px; /* Add padding to markers for better visibility */
+    font-weight: bold;
+}
+.time-markers .marker {
+    position: relative;
+    font-size: 12px; /* Font size of time markers */
+    
+    pointer-events: none;
+}
+#toggle-theme {
+    position: absolute;
+    
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: color 0.3s;
+    font-size: 24px;
+    color: rgb(213, 213, 29);
+}
+#toggle-theme.night {
+    color: white;
+}
+.nav-current a{
+    color: #F2F3F4;
+}
+.nav-current{
+    background-color: #660000;
+}
+
