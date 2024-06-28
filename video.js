@@ -7,6 +7,7 @@ var player;
 var startTime = 130;
 var endTime = 6120;
 var isNightMode = true;
+var isDragging = false; // To track if the scrollbar handle is being dragged
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
@@ -115,15 +116,26 @@ function initializeScrollbar() {
     var videoDuration = endTime - startTime;
 
     scrollbar.addEventListener('input', function () {
+        isDragging = true;
         var percent = scrollbar.value / 100;
         var newPosition = percent * videoDuration;
         player.seekTo(startTime + newPosition);
     });
 
+    scrollbar.addEventListener('mouseup', function () {
+        isDragging = false;
+    });
+
+    scrollbar.addEventListener('touchend', function () {
+        isDragging = false;
+    });
+
     setInterval(function () {
-        var currentTime = player.getCurrentTime();
-        var percent = (currentTime - startTime) / videoDuration * 100;
-        scrollbar.value = percent;
+        if (!isDragging) {
+            var currentTime = player.getCurrentTime();
+            var percent = (currentTime - startTime) / videoDuration * 100;
+            scrollbar.value = percent;
+        }
     }, 1000 / 60); // Update every frame
 }
 
