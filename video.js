@@ -5,7 +5,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var player;
 var startTime = 130;
-var endTime = 6120;
+var endTime = 7150;
 var isNightMode = true;
 var isDragging = false; // To track if the scrollbar handle is being dragged
 
