@@ -4,10 +4,25 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var player;
-var startTime = 130;
+var startTime = 12;
 var endTime = 7150;
 var isNightMode = true;
 var isDragging = false; // To track if the scrollbar handle is being dragged
+
+
+
+var totalLengthInSeconds = 58939; // 16 hours, 22 minutes, and 19 seconds
+
+// Calculate the percentage progress
+var progressPercentage = ((endTime - startTime) / totalLengthInSeconds) * 100;
+
+// Update the progress bar width and text
+var progressBar = document.getElementById('progressBar');
+progressBar.style.width = progressPercentage + '%';
+progressBar.innerText = Math.round(progressPercentage) + '%';
+
+
+
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
