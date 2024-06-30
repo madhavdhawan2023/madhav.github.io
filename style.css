@@ -1,7 +1,18 @@
-
 body {
-    background-color: #3b3a3a;
+    background-image: url(./images/9.jpg);
+    background-position: center right; /* Adjust as needed, e.g., 'right 10px' or 'right 20px' */
+    background-size: cover;
     color: white;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Ensures the body takes the full height of the viewport */
+}
+
+
+@font-face {
+    font-family: 'MijhoFont'; /*a name to be used later*/
+    src: url('./font/gow.ttf'); /*URL to font*/
 }
 
 .centered {
@@ -84,3 +95,42 @@ body {
     background-color: #660000;
 }
 
+.godly-button {
+    background-color: #660000; /* Dark red background color */
+    color: #F2F3F4; /* Light color for text */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Padding for the button */
+    font-size: 18px; /* Font size */
+    font-family: 'MijhoFont', sans-serif; /* Use your custom font */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+    outline: none;
+    box-shadow: none;
+}
+
+.godly-button:hover {
+    background-color: #440000; /* Darker red on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    color: white;
+    outline: none;
+  box-shadow: none;
+}
+
+.godly-button:active {
+    background-color: #220000; /* Even darker red on click */
+    transform: scale(1); /* Return to original size on click */
+    outline: none;
+    box-shadow: none;
+}
+
+.progress {
+    height: 30px; /* Height of the progress bar */
+    margin-bottom: 20px; /* Margin below progress bar */
+}
+
+.progress-bar {
+    background-color: #440000; /* Blue color for progress bar */
+    color: white; /* Text color */
+    font-weight: bold; /* Bold font */
+}
