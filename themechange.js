@@ -1,4 +1,11 @@
-var isNightMode = localStorage.getItem('isNightMode') === 'false';
+// Check if 'isNightMode' is stored in localStorage; default to true if not
+var isNightMode = localStorage.getItem('isNightMode');
+if (isNightMode === null) {
+    isNightMode = true;
+    localStorage.setItem('isNightMode', isNightMode);
+} else {
+    isNightMode = (localStorage.getItem('isNightMode') === 'true');
+}
 
 function toggleTheme(isInitializing = false) {
     var toggleBtn = document.getElementById("toggle-theme");
@@ -15,7 +22,7 @@ function toggleTheme(isInitializing = false) {
 
     if (isNightMode) {
         // Apply night mode styles
-        body.style.backgroundImage= "url(./images/9.jpg)"
+        body.style.backgroundImage = "url(./images/9.jpg)";
         body.style.color = "white";
         navbar.style.backgroundColor = "#660000";
         toggleBtn.classList.add("night");
@@ -27,10 +34,10 @@ function toggleTheme(isInitializing = false) {
         }
     } else {
         // Apply day mode styles
-        body.style.backgroundImage= "url(./images/10.jpg)"
+        body.style.backgroundImage = "url(./images/10.jpg)";
         navbar.style.backgroundColor = "#3b3a3a";
         toggleBtn.classList.remove("night");
-        para.style.color= "white";
+        para.style.color = "white";
         toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
         svgIcon.src = "https://cdn2.steamgriddb.com/icon_thumb/b21f9f98829dea9a48fd8aaddc1f159d.png";
         if (fullscreenbtn) {
@@ -39,3 +46,8 @@ function toggleTheme(isInitializing = false) {
         }
     }
 }
+
+// Initialize theme on page load
+document.addEventListener('DOMContentLoaded', function() {
+    toggleTheme(true);
+});
