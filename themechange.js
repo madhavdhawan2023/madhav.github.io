@@ -1,4 +1,4 @@
-var isNightMode = localStorage.getItem('isNightMode') === 'true';
+var isNightMode = localStorage.getItem('isNightMode') === 'false';
 
 function toggleTheme(isInitializing = false) {
     var toggleBtn = document.getElementById("toggle-theme");
