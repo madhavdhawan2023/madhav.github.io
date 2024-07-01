@@ -8,7 +8,7 @@ function toggleTheme(isInitializing = false) {
     var para = document.querySelector('.mijhotext');
 
     if (!isInitializing) {
-        isNightMode = !isNightMode; // Toggle the theme mode only if not initializing
+        isNightMode = !isNightMode; // Toggle the theme mode only if not initializing.
         localStorage.setItem('isNightMode', isNightMode); // Store the theme mode
     } else {
         // Check localStorage and set the default to night mode if no preference is found
