@@ -7,22 +7,6 @@ var player;
 var startTime = 12;
 var endTime = 10145;
 var isNightMode = true;
-var isDragging = false; // To track if the scrollbar handle is being dragged
-
-
-
-var totalLengthInSeconds = 58939; // 16 hours, 22 minutes, and 19 seconds
-
-// Calculate the percentage progress
-var progressPercentage = ((endTime - startTime) / totalLengthInSeconds) * 100;
-
-// Update the progress bar width and text
-var progressBar = document.getElementById('progressBar');
-progressBar.style.width = progressPercentage + '%';
-progressBar.innerText = Math.round(progressPercentage) + '%';
-
-
-
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
@@ -131,26 +115,15 @@ function initializeScrollbar() {
     var videoDuration = endTime - startTime;
 
     scrollbar.addEventListener('input', function () {
-        isDragging = true;
         var percent = scrollbar.value / 100;
         var newPosition = percent * videoDuration;
         player.seekTo(startTime + newPosition);
     });
 
-    scrollbar.addEventListener('mouseup', function () {
-        isDragging = false;
-    });
-
-    scrollbar.addEventListener('touchend', function () {
-        isDragging = false;
-    });
-
     setInterval(function () {
-        if (!isDragging) {
-            var currentTime = player.getCurrentTime();
-            var percent = (currentTime - startTime) / videoDuration * 100;
-            scrollbar.value = percent;
-        }
+        var currentTime = player.getCurrentTime();
+        var percent = (currentTime - startTime) / videoDuration * 100;
+        scrollbar.value = percent;
     }, 1000 / 60); // Update every frame
 }
 
@@ -201,3 +174,9 @@ function seekBy(seconds) {
     }
     player.seekTo(newTime, true);
 }
+
+var totalLengthInSeconds = 58939; // 16 hours, 22 minutes, and 19 seconds
+var progressPercentage = ((endTime - startTime) / totalLengthInSeconds) * 100;
+var progressBar = document.getElementById('progressBar');
+progressBar.style.width = progressPercentage + '%';
+progressBar.innerText = Math.round(progressPercentage) + '%';
