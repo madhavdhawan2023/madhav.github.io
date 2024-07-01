@@ -26,6 +26,7 @@ function toggleTheme(isInitializing = false) {
         body.style.color = "white";
         navbar.style.backgroundColor = "#660000";
         toggleBtn.classList.add("night");
+        para.style.color = "#f16161";
         toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
         svgIcon.src = "./blackicon.svg";
         if (fullscreenbtn) {
