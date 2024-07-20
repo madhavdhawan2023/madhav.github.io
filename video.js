@@ -5,7 +5,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var player;
 var startTime = 12;
-var endTime = 20285;
+var endTime = 10145;
 var isNightMode = true;
 
 function onYouTubeIframeAPIReady() {
@@ -97,6 +97,7 @@ function setVolume(volume) {
     player.setVolume(volume);
 }
 
+// Enter fullscreen mode
 function enterFullscreen() {
     var iframe = document.getElementById('player');
     if (iframe.requestFullscreen) {
@@ -107,6 +108,10 @@ function enterFullscreen() {
         iframe.webkitRequestFullscreen();
     } else if (iframe.msRequestFullscreen) { // IE/Edge
         iframe.msRequestFullscreen();
+    } else if (iframe.webkitEnterFullscreen) { // Mobile Safari
+        iframe.webkitEnterFullscreen();
+    } else if (iframe.enterFullscreen) { // iOS Safari
+        iframe.enterFullscreen();
     }
 }
 
