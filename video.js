@@ -5,7 +5,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var player;
 var startTime = 12;
-var endTime = 10145;
+var endTime = 26760;
 var isNightMode = true;
 
 function onYouTubeIframeAPIReady() {
