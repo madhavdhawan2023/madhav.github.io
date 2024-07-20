@@ -8,10 +8,9 @@ body {
     padding: 0;
 }
 
-
 @font-face {
-    font-family: 'MijhoFont'; /*a name to be used later*/
-    src: url('./font/gow.ttf'); /*URL to font*/
+    font-family: 'MijhoFont'; /* A name to be used later */
+    src: url('./font/gow.ttf'); /* URL to font */
 }
 
 .centered {
@@ -20,30 +19,34 @@ body {
     align-items: center;
     flex-direction: column;
     height: 100vh;
-
 }
+
 .video-container {
     position: relative;
     pointer-events: none;
-    width: 1000px; /* Match the width of the video frame */
+    width: 100%; /* Use 100% width to make it responsive */
+    max-width: 1000px; /* Max width for larger screens */
     overflow: hidden;
 }
+
 .video-container iframe {
-    width: 1000px;
-    height: 560px; /* Adjust height as needed */
+    width: 100%; /* Use 100% width to make it responsive */
+    height: auto; /* Auto height to maintain aspect ratio */
     pointer-events: none;
     justify-content: center;
 }
+
 /* Custom scrollbar */
 .scrollbar {
-    width: 1000px; /* Match the width of the video iframe */
+    width: 100%; /* Use 100% width to make it responsive */
+    max-width: 1000px; /* Max width for larger screens */
     height: 12px; /* Height of the scrollbar */
     background-color: #f1f1f1;
     position: relative;
     margin-top: 10px;
     border-radius: 5px; /* Circular shape */
-    
 }
+
 .scrollbar-handle {
     position: absolute;
     height: 12px; /* Height of the scrollbar handle */
@@ -54,44 +57,44 @@ body {
     top: 0;
     left: 0;
 }
+
 .time-markers {
     margin-top: 10px;
-    left: 0;
-    width: 1000px; /* Match the width of the video iframe */
+    width: 100%; /* Use 100% width to make it responsive */
+    max-width: 1000px; /* Max width for larger screens */
     display: flex;
     justify-content: space-between;
     pointer-events: none;
     padding: 0 1px; /* Add padding to markers for better visibility */
     font-weight: bold;
 }
+
 .time-markers .marker {
     position: relative;
     font-size: 12px; /* Font size of time markers */
-    
     pointer-events: none;
 }
+
 #toggle-theme {
-    position: absolute;
-    
-    right: 20px;
-    width: 40px;
-    height: 40px;
+    color: rgb(213, 213, 29);
     background-color: transparent;
     border: none;
     border-radius: 50%;
     cursor: pointer;
     transition: color 0.3s;
     font-size: 24px;
-    color: rgb(213, 213, 29);
 }
+
 #toggle-theme.night {
     color: white;
 }
-.nav-current a{
-    color: #F2F3F4;
-}
-.nav-current{
+
+.nav-current {
     background-color: #660000;
+}
+
+.nav-current a {
+    color: #F2F3F4;
 }
 
 .godly-button {
@@ -113,7 +116,7 @@ body {
     transform: scale(1.05); /* Slightly enlarge on hover */
     color: white;
     outline: none;
-  box-shadow: none;
+    box-shadow: none;
 }
 
 .godly-button:active {
@@ -132,4 +135,46 @@ body {
     background-color: #440000; /* Blue color for progress bar */
     color: white; /* Text color */
     font-weight: bold; /* Bold font */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .centered {
+        height: auto;
+        padding: 20px;
+    }
+
+    .video-container {
+        width: 100%;
+        max-width: none;
+    }
+
+    .video-container iframe {
+        width: 100%;
+        height: auto;
+    }
+
+    .scrollbar {
+        width: 100%;
+        max-width: none;
+    }
+
+    .time-markers {
+        width: 100%;
+        max-width: none;
+        font-size: 10px; /* Smaller font size for markers */
+    }
+
+    .navbar-brand {
+        margin: 0 auto;
+    }
+
+    .nav-current .navbar-nav {
+        text-align: left;
+    }
+
+    .godly-button {
+        font-size: 16px; /* Smaller font size for buttons */
+        padding: 8px 16px; /* Smaller padding for buttons */
+    }
 }
