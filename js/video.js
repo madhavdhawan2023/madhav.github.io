@@ -95,7 +95,11 @@ function setVolume(volume) {
 // Enter fullscreen mode
 function enterFullscreen() {
     var iframe = document.getElementById('player');
-    
+    var overlay = document.getElementById('overlay');
+
+    // Remove overlay before entering fullscreen
+    overlay.style.display = 'none';
+
     if (iframe.requestFullscreen) {
         iframe.requestFullscreen();
     } else if (iframe.webkitRequestFullscreen) {
@@ -111,7 +115,13 @@ function enterFullscreen() {
     } else if (iframe.enterFullscreen) { // iOS Safari
         iframe.enterFullscreen();
     }
+
+    // Re-add overlay after entering fullscreen
+    setTimeout(function() {
+        overlay.style.display = 'block';
+    }, 1000); // Adjust delay as needed
 }
+
 
 
 function initializeScrollbar() {
