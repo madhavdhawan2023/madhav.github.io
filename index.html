@@ -1,0 +1,38 @@
+
+<div class="d-flex flex-column justify-content-center align-items-center text-center min-vh-100">
+    <p class="display-4" style="font-family: MijhoFont;">Welcome MIJHO,</p>
+    <p class="lead-mijhotext" style="font-family: MijhoFont;">
+        as we embark on this epic journey through the realms of "God of War," may the strength of the gods be with you.
+        Traverse the majestic landscapes, face the legendary creatures, and unravel the intricate tales of myth and
+        legend. With each battle fought and every puzzle solved, may you feel the thrill and exhilaration that only a
+        warrior of your caliber can experience. I hope you enjoy your journey throughout the game and have fun,
+        embracing the challenges and triumphs that lie ahead. Let the saga of Kratos and Atreus inspire your spirit and
+        fuel your adventure. Enjoy, mighty warrior, and may the gods watch over your path.
+    </p>
+    <button id="begin-journey-button" style="font-family: MijhoFont;" type="button" class="btn godly-button">
+        Begin Your Journey
+    </button>
+</div>
+
+<script>
+    
+    function loadContent(page) {
+        $("#content").load(page, function() {
+            // Once the content is loaded, initialize any required JS for the content if needed
+        });
+    }
+
+    // Check the URL hash on page load
+    if (window.location.hash) {
+        var page = window.location.hash.substring(1); // Get the hash value without the '#'
+        loadContent(page);
+    } 
+    
+    $('#begin-journey-button').on('click', function() {
+        var page = 'pages/video.html';
+        loadContent(page);
+        window.location.hash = page; // Update the URL hash
+    });
+
+
+</script>
