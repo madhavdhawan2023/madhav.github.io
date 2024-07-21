@@ -95,20 +95,24 @@ function setVolume(volume) {
 // Enter fullscreen mode
 function enterFullscreen() {
     var iframe = document.getElementById('player');
+    
     if (iframe.requestFullscreen) {
         iframe.requestFullscreen();
+    } else if (iframe.webkitRequestFullscreen) {
+        iframe.webkitRequestFullscreen();
+    } else if (iframe.webkitEnterFullscreen) {
+        iframe.webkitEnterFullscreen();
+    } else if (iframe.children[0] && iframe.children[0].webkitEnterFullscreen) {
+        iframe.children[0].webkitEnterFullscreen();
     } else if (iframe.mozRequestFullScreen) { // Firefox
         iframe.mozRequestFullScreen();
-    } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, and Opera
-        iframe.webkitRequestFullscreen();
     } else if (iframe.msRequestFullscreen) { // IE/Edge
         iframe.msRequestFullscreen();
-    } else if (iframe.webkitEnterFullscreen) { // Mobile Safari
-        iframe.webkitEnterFullscreen();
     } else if (iframe.enterFullscreen) { // iOS Safari
         iframe.enterFullscreen();
     }
 }
+
 
 function initializeScrollbar() {
     var scrollbar = document.getElementById('scrollbarHandle');
