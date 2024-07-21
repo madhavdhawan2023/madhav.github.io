@@ -30,7 +30,7 @@ $(document).ready(function() {
     }
 
     // Check the URL hash on page load
-    var initialPage = getCurrentHash() || 'index.html';
+    var initialPage = getCurrentHash() || 'main.html';
     loadContent(initialPage);
 
     // Using click events to load different pages and update the hash
