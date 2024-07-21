@@ -170,19 +170,20 @@ body {
     .display-4 {
         font-size: 3.5rem; /* Adjust as needed */
     }
+    
 }
 
 /* Extra-large screens */
 @media (min-width: 1200px) {
     .display-4 {
-        font-size: 4rem; /* Adjust as needed */
+        font-size: 3rem; /* Adjust as needed */
     }
 }
 
 /* Larger screens */
 @media (max-width: 768px) {
     .display-4 {
-        font-size: 3rem; /* Adjust as needed */
+        font-size: 2rem; /* Adjust as needed */
     }
     .lead-mijhotext{
         font-size: 16px;
@@ -190,5 +191,11 @@ body {
         padding: 0 60px 0 60px;
     }
     
+}
+
+@media (max-width: 990px) {
+.navbar-brand{
+    padding-right: 60px;
+}
 }
 
