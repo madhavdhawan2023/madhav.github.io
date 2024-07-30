@@ -1,6 +1,6 @@
 var player;
 var startTime = 12;
-var endTime = 38680;
+var endTime = 58939;
 var isNightMode = true;
 
 function onYouTubeIframeAPIReady() {
